@@ -7,14 +7,13 @@ macAddress = "20:16:12:21:35:82" # MACアドレス
 device = BITalino(macAddress) # デバイスの取得
 print(device.version()) # バージョンの表示
 
-Samplingrate = 1000 # サンプリングレート
-Acqchannels = [0] # 取得チャネル（A1）
-Nsamples = 10 # 取得サンプル数
+samplingRate = 1000 # サンプリングレート
+acqChannels = [0] # 取得チャネル（A1）
+nSamples = 10 # 取得サンプル数
 
-Device.Start(Samplingrate, Acqchannels) # データ取得開始
-Data = Device.Read(Nsamples)
-Print(Data)
+device.start(samplingRate, acqChannels) # データ取得開始
+data = device.read(nSamples)
+print(data)
 
-
-Device.Stop()
-Device.Close()
+device.stop()
+device.close()
